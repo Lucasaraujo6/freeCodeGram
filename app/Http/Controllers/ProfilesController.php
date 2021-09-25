@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
+
 class ProfilesController extends Controller
 {
     /**
