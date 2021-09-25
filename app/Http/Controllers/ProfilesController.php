@@ -15,12 +15,16 @@ class ProfilesController extends Controller
      */
     public function index($user)
     {
+        
         //nesse fazemos a conversão de user em uma classe dentro do método
         $user = User::findOrFail($user); 
+
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
+      //  dd($follows);
         //aqui usamos uma forma de atribuir o valor $user a user
-        return view('profiles.index',[
-            'user' => $user,
-        ]);
+        return view('profiles.index', compact('user', 'follows'));
+
     }
     //nesse fazemos uma conversão na própria declaração. Não precisamos de usar o App\Models\User pois já importamos
     public function edit(User $user)
@@ -28,7 +32,10 @@ class ProfilesController extends Controller
         
         $this->authorize('update',$user->profile);
         //aqui usamos o compact para atribuir o valor direto
-        return view('profiles.edit', compact('user'));
+
+        return view('profiles.edit',[
+            'user' => $user, 
+        ]);
     }
     public function update(User $user)
     {

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\FollowsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::post('follow/{user}', [FollowsController::class,'store']);
 
 Route::post('/p','App\Http\Controllers\PostsController@store');
 
