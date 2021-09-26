@@ -22,19 +22,25 @@ class ProfilesController extends Controller
         $user = User::findOrFail($user); 
 
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
-      // dd($follows);        
+       // dd($user);
+        //dd($follows);        
         
-        $postCount = Cache::remember( 'count.posts'.$user->id, now()->addSeconds(30), function () use ($user){
+        $postCount = Cache::remember('count.posts'.$user->id, now()->addSeconds(5), function () use ($user){
             return $user->posts->count();
         });
         
-        $followersCount = Cache::remember( 'count.posts'.$user->id, now()->addSeconds(30), function () use ($user){
+        $followersCount = Cache::remember('count.followers'.$user->id, now()->addSeconds(5), function () use ($user){
             return $user->profile->followers()->count();
         });
+        //$followersCount = $user->profile->followers()->count();
+        //dd($followersCount);
         
-        $followingCount = Cache::remember( 'count.posts'.$user->id, now()->addSeconds(30), function () use ($user){
+        $followingCount = Cache::remember('count.following'.$user->id, now()->addSeconds(5), function () use ($user){
             return $user->following()->count();
         });
+       // dd( $user->following());
+        //$followingCount = $user->following()->count();
+        //dd($followingCount);
 
 
         //aqui usamos uma forma de atribuir o valor $user a user

@@ -13,7 +13,7 @@ class Profile extends Model
     protected $guarded = [];
 
     public function profileImage(){
-        return ($this->image) ? "/storage/".$this->image : '/storage/Perfil.png';
+        return ($this->image) ? "/storage/".$this->image : '/storage/profile/GuuEho3HNvKMEKnZtTFMJJIUbD4NNJlooGQFnzRB.png';
     }
     public function user(){
         return $this->belongsTo(User::class);
