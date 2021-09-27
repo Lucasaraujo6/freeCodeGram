@@ -7,29 +7,31 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## [REFERÊNCIA MASTER](https://www.youtube.com/watch?v=ImtZ5yENzgE&ab_channel=freeCodeCamp.org)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Referências que usei para resolver problemas:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Problema criando novo laravel](https://stackoverflow.com/questions/65183425/problem-creating-a-new-project-with-laravel).
+- [make:auth problem](https://stackoverflow.com/questions/34545641/php-artisan-makeauth-command-is-not-defined).
+- [Bootstrap not renderering 1](https://www.techiediaries.com/laravel/how-to-install-bootstrap-in-laravel-6-7-by-example/) 
+- [Bootstrap not renderering 2](https://laracasts.com/discuss/channels/code-review/empty-appcss-and-appscss-files) 
+- [GD problem]( Intervention Image GD library extension).
+- [Pagination render](https://stackoverflow.com/questions/48284599/laravel-pagination-links-not-working?rq=1).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Responsive image problem
 
-## Learning Laravel
+Solução encontrada: 
+Diminuí o tamanho da imagem de w-100 para w-75, 
+conforme nomes disponíveis aqui: https://bootstrapshuffle.com/classes/sizing/w-100
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+setei os tamanhos mínimos da seguinte forma, style="    min-width: 100px;     flex-shrink: 0; min-height: 30%"
+conforme encontrei escrito aqui:
+https://stackoverflow.com/questions/14142378/how-can-i-fill-a-div-with-an-image-while-keeping-it-proportional
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+E tirei o padding lateral (estava usando as laterais para padding ao invés de para uso da imagem, então eu mudei a config)
+Esse eu vi em algum lugar, p-5 é padding em todos sentidos, py-5 é padding apenas no eixo vertical, px-5 é só no horizontal, pt-5 é top, pr-5 é direita, pb-5 é bottom, etc... vai de 1 a 5
+https://getbootstrap.com/docs/4.0/utilities/spacing/
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
 ### Premium Partners
 
